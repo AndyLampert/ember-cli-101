@@ -1,0 +1,11 @@
+<h1>Friends Index</h1>
+{{! The context here is the controller }}
+{{!-- our model is a collection and it has the property length, we can just reference it in the template as model.length. --}}
+<h2>Total friends: {{model.length}}</h2>
+<ul>
+{{!-- When we do {{#each friend in model}}, Ember (under the hood) takes every element of the collection
+and set it as friend, the collection which is what the model hook returned is referenced as model. --}}
+	{{#each friend in model}}
+		<li>{{friend.firstName}} {{friend.lastName}}</li>
+	{{/each}}
+</ul>
