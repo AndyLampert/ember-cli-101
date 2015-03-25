@@ -13,6 +13,7 @@ import DS from 'ember-data';
 // could have written
 // import Friend from './friend';
 export default DS.Model.extend({
+	articles: DS.hasMany('article'),
 	// DS.attr is the standard way to define attributes with Ember-Data
 	firstName: DS.attr('string'),
 	// Defines an attribute called lastName of type **string**

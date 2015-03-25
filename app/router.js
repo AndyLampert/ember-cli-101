@@ -6,20 +6,16 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.resource('friends', function() {
+  this.resource('friends', function(){
     this.route('new');
-
-    this.route('show', {
-      path: ':friend_id'
+    this.route('show', { path: ':friend_id' }, function() {
+      this.resource('articles', function() { });
     });
-
-    this.route('edit', {
-      path: ':friend_id/edit'
-    });
+  this.route('edit', { path: ':friend_id/edit' });
   });
 });
-
 export default Router;
 
 
 // ember g route friends/edit --path=:friend_id/edit
+

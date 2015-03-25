@@ -3,7 +3,11 @@ When Ember starts, it will render the Application Template as the main template.
 it will render the template associated with the Route we are visiting. Then, inside those templates,
 we can have more {{outlet}} to keep rendering content.
  --}}
-<h2 id="title">Welcome to Ember.js</h2>
-{{#link-to 'friends'}}Go to friends list{{/link-to}}
-{{outlet}}
 
+{{partial 'partials/header'}}
+<h2>{{#link-to 'friends'}}Go to friends list{{/link-to}}</h2>
+<div class="row">
+	<div class="full">
+		{{outlet}}
+	</div>
+</div>
