@@ -20,5 +20,10 @@ export default DS.Model.extend({
 	// Ember-Data expects the attribute **email** on the friend's payload
 	email: DS.attr('string'),
 	twitter: DS.attr('string'),
-	totalArticles: DS.attr('number')
+	totalArticles: DS.attr('number'),
+	// The computed property depends on firstName and lastName. Any time either of those properties
+	// changes, so will the value of fullName
+	fullName: Ember.computed('firstName', 'lastName', function(){
+		return this.get('firstName') + ' ' + this.get('lastName');
+	})
 });

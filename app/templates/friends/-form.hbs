@@ -1,0 +1,36 @@
+<p>You have entered... </p>
+<p>Name: {{model.firstName}} {{model.lastName}}</p>
+<p>Email: {{model.email}}</p>
+<p>Twitter: {{model.twitter}}</p>
+{{!-- The {{action}} helper is one of the most useful features in Ember. It allows us to bind an action in
+the template to an action in the template’s Controller or Route. 
+By default it is bound to the click
+action, but it can be bound to other actions. --}}
+<form {{action "save" on="submit"}}>
+	<h2 class="error">{{errorMessage}}</h2>
+	<p>
+		<label>First Name:
+			{{input value=model.firstName}}
+		</label>
+	</p>
+	<p>
+		<label>Last Name:
+			{{input value=model.lastName }}
+		</label>
+	</p>
+	<p>
+		<label>Email:
+			{{input value=model.email}}
+		</label>
+	</p>
+	<p>
+		<label>Twitter
+			{{input value=model.twitter}}
+		</label>
+	</p>
+	<input type="submit" value="Save"/>
+	{{!--Ember expects us to define our action handlers inside the property actions in the Controller or
+	Route. --}}
+	<button {{action "cancel"}}>Cancel</button>
+	Sober right now? {{input type="checkbox" name=trusted}}
+</form>
